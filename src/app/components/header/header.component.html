@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+
+    <!--
+        Application title which is in Application header
+    -->
+    <a class="navbar-brand">Todo List App</a>
+    <div>
+        <ul class="navbar-nav">
+            <!--
+                Home button in Application header configured with
+                    1. routerLinkActive (if current page is 'home' this will assign 'active' CSS classname to Home button)
+                    2. routerLink ( this will link to 'home' route  in this app )
+            -->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="home">Home</a>
+            </li>
+
+            <!--
+                Help button in Application header configured with
+                    1. routerLinkActive (if current page is 'help' this will assign 'active' CSS classname to Home button)
+                    2. routerLink ( this will link to 'help' route  in this app )
+            -->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="help">Help</a>
+            </li>
+        </ul>
+    </div>
+</nav>

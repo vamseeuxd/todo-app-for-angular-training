@@ -1,0 +1,27 @@
+<div class="form-check float-left pt-2">
+
+    <!--
+        Checkbox input to allow user to select or deselect isCompleted property
+            (change) event bind to TodoListItemComponent onIsCompleteChange() method
+            [checked] property bind to TodoListItemComponent todoItem.isCompleted (boolean) property
+    -->
+    <input (change)="onIsCompleteChange()"
+           [checked]="todoItem.isCompleted"
+           class="form-check-input"
+           style="transform:
+           scale(2);cursor: pointer;"
+           type="checkbox">
+
+    <!--
+        label is bind to todoItem.title property using Interpolation {{...}}
+    -->
+    <label class="form-check-label pl-3">{{todoItem.title}}</label>
+
+</div>
+
+<!--
+    Delete Button with (click) event binding
+-->
+<button type="button"
+        (click)="deleteTodoItem()"
+        class="btn btn-danger float-right">Delete</button>

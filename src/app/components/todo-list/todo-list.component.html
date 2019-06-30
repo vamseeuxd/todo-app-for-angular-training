@@ -1,0 +1,16 @@
+<!--
+    ng-container is an element that’s available in Angular 2+ and that can act as the host to structural directives.
+-->
+<ng-container *ngFor="let todoItem of todoList">
+    <!--
+        TodoListItemComponent to show todoList
+            event binding (updateToNotComplete) is a TodoListItemComponent Output, bind to TodoListComponent updateToComplete.emit(id: number) method
+            event binding (updateToComplete) is a TodoListItemComponent Output, bind to TodoListComponent updateToComplete.emit(id: number) method
+            event binding (deleteTodo) is a TodoListItemComponent Output, bind to TodoListComponent deleteTodo.emit(id: number) method
+            property binding [todoItem] is a TodoListItemComponent Input, bind to TodoListComponent todoItem in  todoList (array) property
+    -->
+    <app-todo-list-item (updateToComplete)="updateToComplete.emit($event)"
+                        (updateToNotComplete)="updateToNotComplete.emit($event)"
+                        (deleteTodo)="deleteTodo.emit($event)"
+                        [todoItem]="todoItem"></app-todo-list-item>
+</ng-container>

@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12 offset-xs-0">
+
+            <!--
+                Pager Header to show Page Title
+                    h4 is bind to HomePageComponent pageTitle property using Interpolation {{...}}
+            -->
+            <h4 class="text-center text-danger mt-5">
+                {{pageTitle}}
+                <h6 class="d-inline">{{todayDate|date}}</h6>
+            </h4>
+
+            <!--
+                AddTodoComponent to add new todos
+                    event binding (addClick) is an AddTodoComponent Output, bind to HomePageComponent addTodoItem(todoListItem: ITodoListItem) method
+            -->
+            <app-add-todo (addClick)="addTodoItem($event)"></app-add-todo>
+
+            <!--
+                *ngIf structural directive that conditionally includes a template based on the value of an expression ( todoList.length > 0 ) coerced to Boolean
+                    When the expression ( todoList.length > 0 ) evaluates to true, Angular renders the template ( todoListTemplate ) provided in a then clause,
+                    and when false or null, Angular renders the template ( noRecordsFoundTemplate ) provided in an optional else clause.
+            -->
+            <div *ngIf="( todoList.length > 0 ); then todoListTemplate else noRecordsFoundTemplate"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+    NoRecordsFoundTemplate :
+    if there is no todos this will show
+-->
+<ng-template #noRecordsFoundTemplate>
+    <!--
+        h6 is bind to HomePageComponent noRecordsFoundMessage property using Interpolation {{...}}
+    -->
+    <h6 class="text-info text-center mt-3">{{noRecordsFoundMessage}}</h6>
+</ng-template>
+
+<!--
+    TodoListTemplate :
+    if any todos are available this will show
+-->
+<ng-template #todoListTemplate>
+    <!--
+        TodoListComponent to show todoList
+            event binding (updateToNotComplete) is a TodoListComponent Output, bind to HomePageComponent updateToNotComplete(id: number) method
+            event binding (updateToComplete) is a TodoListComponent Output, bind to HomePageComponent updateToComplete(id: number) method
+            event binding (deleteTodo) is a TodoListComponent Output, bind to HomePageComponent deleteTodo(id: number) method
+            property binding [todoList] is a TodoListComponent Input, bind to HomePageComponent todoList (array) property
+    -->
+    <app-todo-list (updateToNotComplete)="updateToNotComplete($event)"
+                   (updateToComplete)="updateToComplete($event)"
+                   (deleteTodo)="deleteTodo($event)"
+                   [todoList]="todoList"></app-todo-list>
+</ng-template>
+
