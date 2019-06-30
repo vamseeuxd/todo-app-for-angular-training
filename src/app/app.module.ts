@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { TodoListItemComponent } from './components/todo-list-item/todo-list-item.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -24,7 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

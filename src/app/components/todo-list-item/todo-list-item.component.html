@@ -6,7 +6,7 @@
             [checked] property bind to TodoListItemComponent todoItem.isCompleted (boolean) property
     -->
     <input (change)="onIsCompleteChange()"
-           [checked]="todoItem.isCompleted"
+           [checked]="todoItem?.isCompleted"
            class="form-check-input"
            style="transform:
            scale(2);cursor: pointer;"
@@ -15,7 +15,7 @@
     <!--
         label is bind to todoItem.title property using Interpolation {{...}}
     -->
-    <label class="form-check-label pl-3">{{todoItem.title}}</label>
+    <label class="form-check-label pl-3">{{todoItem?.title}}</label>
 
 </div>
 

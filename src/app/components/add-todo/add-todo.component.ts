@@ -19,14 +19,18 @@ export class AddTodoComponent {
     @Output() addClick: EventEmitter<ITodoListItem> = new EventEmitter<ITodoListItem>();
 
     /*
+    * toDoTitle property bind to */
+    toDoTitle = '';
+
+    /*
     * emitAddClick method is bind with
     *   1. Text Input with (keyup.enter) event
     *   2. And Add Button with (click) event
     * */
-    emitAddClick(toDoTitle: HTMLInputElement) {
-        if (toDoTitle.value.trim().length > 0) {
-            this.addClick.emit({title: toDoTitle.value, isCompleted: false});
-            toDoTitle.value = '';
+    emitAddClick() {
+        if (this.toDoTitle.trim().length > 0) {
+            this.addClick.emit({title: this.toDoTitle, isCompleted: false});
+            this.toDoTitle = '';
         }
     }
 }

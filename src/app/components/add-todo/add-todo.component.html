@@ -5,9 +5,9 @@
             Text Input with (keyup.enter) event binding
                 when ever user press enter in keyboard (keyup.enter) event will trigger
         -->
-        <input #toDoTitle
-               (keyup.enter)="emitAddClick(toDoTitle)"
-               name="title"
+        <input (keyup.enter)="emitAddClick()"
+               [(ngModel)]="toDoTitle"
+               name="toDoTitle"
                type="text"
                class="form-control"
                placeholder="Enter Todo Item">
@@ -18,7 +18,7 @@
                 Add Button with (click) event binding
             -->
             <button class="btn btn-primary"
-                    (click)="emitAddClick(toDoTitle)"
+                    (click)="emitAddClick()"
                     type="button">Add</button>
         </div>
     </div>
